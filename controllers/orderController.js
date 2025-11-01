@@ -19,7 +19,6 @@ const orderController = {
         return res.status(400).json({ message: 'UserId and items array are required' });
       }
 
-      // Validate and calculate total
       let totalAmount = 0;
       const validatedItems = [];
 

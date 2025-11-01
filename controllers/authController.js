@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../middleware/auth');
 const authRepository = require('../repositories/authRepository');
 
-// Generate JWT token
+
 const generateToken = (admin) => {
   return jwt.sign(
     { id: admin.id, username: admin.username, email: admin.email },
@@ -44,7 +44,6 @@ const authController = {
 
   getCurrentUser: async (req, res) => {
     try {
-      // req.user is set by authenticateToken middleware
       const admin = await authRepository.findById(req.user.id);
       
       if (!admin) {
